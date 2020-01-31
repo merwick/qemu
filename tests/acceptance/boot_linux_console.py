@@ -49,7 +49,7 @@ class BootLinuxConsole(Test):
         process.run("ar x %s %s" % (deb, file_path))
         archive.extract(file_path, self.workdir)
         os.chdir(cwd)
-        return self.workdir + path
+        return os.path.normpath(os.path.join(self.workdir, path))
 
     def extract_from_rpm(self, rpm, path):
         """
